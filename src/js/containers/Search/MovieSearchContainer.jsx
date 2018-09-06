@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { updateSearchInput, getMovie, getTitle } from "../searchActions";
+import { updateSearchInput, getMovie, getTitle, getShortPlot} from "../searchActions";
 
 export default class MovieSearchContainer extends React.Component {
   constructor(props) {
@@ -22,13 +22,13 @@ export default class MovieSearchContainer extends React.Component {
     if (name == "") {
       return alert("Fill out input!");
     } else {
-      dispatch(getMovie(name)) &&
-        dispatch(getTitle(this.props.match.params.id));
+      dispatch(getMovie(name)) && dispatch(getTitle(this.props.match.params.id)) && dispatch(getShortPlot(name));
     }
   }
 
   render() {
-    const { name, data } = this.props;
+    const { name, data, shortPlot } = this.props;
+    console.log(shortPlot);
     return (
       <div>
         <form>
@@ -61,8 +61,8 @@ export default class MovieSearchContainer extends React.Component {
                       className="card-img-top"
                       src={info.Poster}
                       alt="testing"
-                      height="300"
-                      width="100"
+                      height="100%"
+                      width="100%"
                     />
                   </div>
                   <div className="col-md">

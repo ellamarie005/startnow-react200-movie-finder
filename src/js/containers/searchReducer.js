@@ -1,7 +1,8 @@
 const defaultState = {
   name: "",
   data: [],
-  movieInfo: []
+  movieInfo: [],
+  shortPlot: []
 };
 
 export default function SearchReducer(state = defaultState, action) {
@@ -21,7 +22,12 @@ export default function SearchReducer(state = defaultState, action) {
         data: payload.data.Search
       };
     }
-
+    case "GET_SHORT_PLOT_FULFILLED": {
+      return {
+        ...state,
+        shortPlot: payload.data
+      };
+    }
     case "GET_TITLE_FULFILLED": {
       return {
         ...state,

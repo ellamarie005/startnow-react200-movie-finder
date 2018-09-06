@@ -22,3 +22,12 @@ export function getTitle(id) {
     )
   };
 }
+
+export function getShortPlot(id) {
+  return {
+    type: "GET_SHORT_PLOT",
+    payload: axios.get(
+      `http://www.omdbapi.com/?apikey=a227c0d3&i=${id}&plot=short`
+    )
+  };
+}

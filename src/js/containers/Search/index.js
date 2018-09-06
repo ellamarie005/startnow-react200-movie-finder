@@ -4,7 +4,8 @@ import MovieSearchContainer from "./MovieSearchContainer";
 function mapStoreToProps(store) {
   return {
     name: store.search.name,
-    data: store.search.data
+    data: store.search.data,
+    shortPlot: store.search.shortPlot
   };
 }
 
