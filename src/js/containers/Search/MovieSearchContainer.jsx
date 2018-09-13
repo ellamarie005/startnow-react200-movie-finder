@@ -28,7 +28,6 @@ export default class MovieSearchContainer extends React.Component {
 
   render() {
     const { name, data, shortPlot } = this.props;
-    console.log(shortPlot);
     return (
       <div>
         <form>
@@ -69,7 +68,6 @@ export default class MovieSearchContainer extends React.Component {
                     <h3>{info.Title}</h3>
                     <h6>{info.Year}</h6>
                     <hr />
-                    <div>PLOT</div>
                     <div className="d-flex justify-content-end align-self-baseline">
                       <a
                         className="btn btn-primary"

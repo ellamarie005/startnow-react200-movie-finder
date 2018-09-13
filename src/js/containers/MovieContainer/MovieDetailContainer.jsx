@@ -39,7 +39,7 @@ class MovieDetailContainer extends React.Component {
               <hr />
               <h5>{movieInfo.Title}</h5>
               <p>
-                {movieInfo.Released} {movieInfo.Runtime} {movieInfo.Rated}
+                {movieInfo.Released} | {movieInfo.Runtime} | {movieInfo.Rated}
               </p>
               <p>{movieInfo.Plot}</p>
               <p>Metascore: {movieInfo.Metascore}</p>
@@ -47,7 +47,6 @@ class MovieDetailContainer extends React.Component {
             </div>
           </div>
         </div>
-        <p>Viewing movie {this.props.match.params.id}</p>
       </div>
     );
   }
