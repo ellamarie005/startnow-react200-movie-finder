@@ -31,7 +31,8 @@ class MovieDetailContainer extends React.Component {
                 className="card-img-top"
                 src={movieInfo.Poster}
                 alt="testing"
-                height="300px"
+                height="100%"
+                width="100%"
               />
             </div>
             <div className="card body col-md border-0">
