@@ -1,5 +1,6 @@
 import React from "react";
 import { getTitle } from "../searchActions";
+import styled from 'styled-components';
 
 class MovieDetailContainer extends React.Component {
   constructor(props) {
@@ -15,15 +16,16 @@ class MovieDetailContainer extends React.Component {
     } = this.props;
     dispatch(getTitle(id));
   }
+
   render() {
     const { movieInfo, data } = this.props;
     console.log(movieInfo);
     return (
-      <div className="container">
-        <h1>Movie Finder</h1>
-        <a href={"#/"} className="btn btn-primary">
+      <Details className="container">
+        <a href={"#/"} className="btn">
           Go Back
         </a>
+        <br />
         <div className="card">
           <div className="card-body row">
             <div className="col-md-4">
@@ -48,9 +50,19 @@ class MovieDetailContainer extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </Details>
     );
   }
 }
+
+const Details = styled.div`
+a {
+  margin: 20px;
+  text-align: center;
+  position: absolute;
+    right: 40px;
+    top: 260px;
+}
+`
 
 export default MovieDetailContainer;

@@ -55,24 +55,20 @@ export default class MovieSearchContainer extends React.Component {
         <div>
           {data.map(info => {
             return (
-              <Movie className="card" key={info.imdbID}>
+              <Movie className="card col-md-3" key={info.imdbID}>
                 <div className="card-body" id='info'>
                   <img
                     className="card-img-top"
                     src={info.Poster}
                     alt="testing"
                   />
-                  <h5>{info.Title}</h5>
-                  <p>{info.Year}</p>
-                  <hr />
-                  <div className="d-flex">
-                    <a
-                      className="btn btn-primary"
-                      href={`#/movie/${info.imdbID}`}
-                    >
-                      More Information
+                  <h5>{info.Title} | {info.Year}</h5>
+                  <a
+                    className="btn"
+                    href={`#/movie/${info.imdbID}`}
+                  >
+                    More Information
                       </a>
-                  </div>
                 </div>
               </Movie>
             );
@@ -83,25 +79,22 @@ export default class MovieSearchContainer extends React.Component {
   }
 }
 
-// const Movies = styled.div`
-//   display: flex;
-//   flex-flow: row wrap;
-//   justify-content: center;
-// `
 const Movie = styled.div`
-  display: flex;
-  flex-flow: row wrap;
+  display: inline-block;
   text-align: center;
-  margin: 10px;
-  padding: 5px;
-  float: left;
-  text-justify: auto;
+  margin: auto;
+  padding: auto;
+  justify-content: center;
+  border: solid;
+  border-color: #020323;
+  border-width: 5px;
 
 img {
-  width: 300px;
-  height: 450px;
+  width: 200px;
+  height: 300px;
 }
-#info {
-  
+a {
+  background-color: #020323;
+  color: white;
 }
 `
