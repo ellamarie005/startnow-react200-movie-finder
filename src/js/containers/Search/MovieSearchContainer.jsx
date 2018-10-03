@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { updateSearchInput, getMovie, getTitle, getShortPlot} from "../searchActions";
+import styled from 'styled-components';
+import { updateSearchInput, getMovie, getTitle, getShortPlot } from "../searchActions";
 
 export default class MovieSearchContainer extends React.Component {
   constructor(props) {
@@ -22,7 +23,8 @@ export default class MovieSearchContainer extends React.Component {
     if (name == "") {
       return alert("Fill out input!");
     } else {
-      dispatch(getMovie(name)) && dispatch(getTitle(this.props.match.params.id)) && dispatch(getShortPlot(name));
+      dispatch(getMovie(name));
+      dispatch(getTitle(this.props.match.params.id)) && dispatch(getShortPlot(name));
     }
   }
 
@@ -53,32 +55,26 @@ export default class MovieSearchContainer extends React.Component {
         <div>
           {data.map(info => {
             return (
-              <div className="card" key={info.imdbID}>
-                <div className="row card-body">
-                  <div className="col-md-4">
-                    <img
-                      className="card-img-top"
-                      src={info.Poster}
-                      alt="testing"
-                      height="100%"
-                      width="100%"
-                    />
-                  </div>
-                  <div className="col-md">
-                    <h3>{info.Title}</h3>
-                    <h6>{info.Year}</h6>
-                    <hr />
-                    <div className="d-flex justify-content-end align-self-baseline">
-                      <a
-                        className="btn btn-primary"
-                        href={`#/movie/${info.imdbID}`}
-                      >
-                        More Information
+              <Movie className="card" key={info.imdbID}>
+                <div className="card-body" id='info'>
+                  <img
+                    className="card-img-top"
+                    src={info.Poster}
+                    alt="testing"
+                  />
+                  <h5>{info.Title}</h5>
+                  <p>{info.Year}</p>
+                  <hr />
+                  <div className="d-flex">
+                    <a
+                      className="btn btn-primary"
+                      href={`#/movie/${info.imdbID}`}
+                    >
+                      More Information
                       </a>
-                    </div>
                   </div>
                 </div>
-              </div>
+              </Movie>
             );
           })}
         </div>
@@ -86,3 +82,26 @@ export default class MovieSearchContainer extends React.Component {
     );
   }
 }
+
+// const Movies = styled.div`
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: center;
+// `
+const Movie = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+  float: left;
+  text-justify: auto;
+
+img {
+  width: 300px;
+  height: 450px;
+}
+#info {
+  
+}
+`
